@@ -7,11 +7,13 @@ import plotly.graph_objs as go
 import os
 import calendar
 
+
 from wordcloud import WordCloud
 from collections import Counter
 from streamlit_option_menu import option_menu
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from unidecode import unidecode
 
 # Yukipm23
 # Settings
@@ -243,6 +245,15 @@ def predict_dataframe_page(model):
     if uploaded_file:
         df = pd.read_excel(uploaded_file) if uploaded_file.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' else pd.read_csv(uploaded_file)
         st.write('Uploaded DataFrame:')
+        st.write(df)
+
+        def CaseFolding(text):
+            text = text.lower()
+            text = unidecode(text)
+            return text
+        
+        CaseFolding(df)
+         st.write('casefolding:')
         st.write(df)
         # Create a list of column headers from the DataFrame
         column_df = df.columns.tolist()
