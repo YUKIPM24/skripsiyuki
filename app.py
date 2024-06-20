@@ -13,6 +13,7 @@ from streamlit_option_menu import option_menu
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
+# Yukipm23
 # Settings
 st.set_page_config(page_title="Analisis Sentimen")
 
