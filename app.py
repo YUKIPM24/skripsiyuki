@@ -13,7 +13,6 @@ from collections import Counter
 from streamlit_option_menu import option_menu
 from pymongo import MongoClient
 from dotenv import load_dotenv
-from unidecode import unidecode
 
 # Yukipm23
 # Settings
@@ -247,14 +246,6 @@ def predict_dataframe_page(model):
         st.write('Uploaded DataFrame:')
         st.write(df)
 
-        def CaseFolding(text):
-            text = text.lower()
-            text = unidecode(text)
-            return text
-        
-        CaseFolding(df)
-        st.write('casefolding:')
-        st.write(df)
         # Create a list of column headers from the DataFrame
         column_df = df.columns.tolist()
         # Add a select box for choosing the 'access_control' column
