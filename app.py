@@ -253,7 +253,7 @@ def predict_dataframe_page(model):
             return text
         
         CaseFolding(df)
-         st.write('casefolding:')
+        st.write('casefolding:')
         st.write(df)
         # Create a list of column headers from the DataFrame
         column_df = df.columns.tolist()
